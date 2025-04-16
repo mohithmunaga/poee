@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EngineerGram Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .post {
+      border: 1px solid #262626;
+      background-color: #121212;
+      margin-bottom: 2rem;
+    }
+    .post-header, .post-footer {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .post-content {
+      padding: 1rem;
+    }
+    .post img {
+      width: 100%;
+      height: auto;
+    }
+    .interact-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid #444;
+    }
+    .interact-bar button {
+      background: none;
+      border: none;
+      color: whitesmoke;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .comment-section {
+      padding: 1rem;
+      border-top: 1px solid #333;
+      color: #ccc;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+    .comment-section p {
+      margin-bottom: 0.5rem;
+    }
+        .highlight-story {
+      border: 2px solid transparent;
+      background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+                  linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) border-box;
+      background-size: 200% 200%;
+      animation: gradientBorder 5s ease infinite;
+      padding: 6px;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+
+    @keyframes gradientBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradientMove 4s ease infinite;
+    }
+
+
+    .interact-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #444;
+}
+
+.interact-bar button {
+  background: none;
+  border: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+<!-- PFP Modal -->
+<!-- PFP Modal -->
+<div id="pfpModal" class="fixed inset-0 ...">...</div>
+
+  <div class="relative">
+    <button onclick="closePfp()" class="absolute top-2 right-2 text-white text-3xl">✕</button>
+    <img
+      src="https://hips.hearstapps.com/hmg-prod/images/kendrick-lamar-at-the-67th-grammy-awards-held-at-the-crypto-news-photo-1738959019.pjpeg?crop=1.00xw:0.667xh;0,0.0715xh&resize=640:*"
+      alt="Profile Full View"
+      class="max-w-full max-h-[80vh] rounded-lg border border-gray-700"
+/>
+  </div>
+</div>
+
+
+    @keyframes gradientBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradientMove 4s ease infinite;
+    }
+  </style>
+</head>
+<!-- Move this outside <style> -->
+    <div id="pfpModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <div class="relative">
+          <button onclick="closePfp()" class="absolute top-2 right-2 text-white text-3xl">✕</button>
+          <img
+            src="https://hips.hearstapps.com/hmg-prod/images/kendrick-lamar-at-the-67th-grammy-awards-held-at-the-crypto-news-photo-1738959019.pjpeg?crop=1.00xw:0.667xh;0,0.0715xh&resize=640:*"
+            alt="Profile Full View"
+            class="max-w-full max-h-[80vh] rounded-lg border border-gray-700"
+      />
+        </div>
+      </div>
+
+      
+<body class="bg-black text-white">
+
+  <!-- Profile Header -->
+  <header class="border-b border-gray-800 sticky top-0 bg-black z-50">
+    <div class="max-w-xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold animate-gradient bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] bg-clip-text text-transparent">EngineerGram</h1>
+        <nav class="space-x-6 text-sm">
+          <a href="#attributes" class="hover:text-yellow-300">Attributes</a>
+          <a href="#ontology" class="hover:text-yellow-300">Ontology</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Info -->
+  <section class="max-w-xl mx-auto px-6 py-6 border-b border-gray-800">
+    <!-- Username -->
+    <h2 class="text-xl font-semibold mb-4">@theweird.engineer</h2>
+  
+    <!-- Profile top section -->
+    <div class="flex items-center justify-between">
+
+    <!-- Profile picture -->
+<img
+src="https://hips.hearstapps.com/hmg-prod/images/kendrick-lamar-at-the-67th-grammy-awards-held-at-the-crypto-news-photo-1738959019.pjpeg?crop=1.00xw:0.667xh;0,0.0715xh&resize=640:*"
+alt="Profile"
+class="w-24 h-24 rounded-full border border-gray-500 cursor-pointer"
+onclick="showPfp()"
+/>
+
+      <!-- Stats -->
+      <div class="flex-1 flex justify-around text-center">
+        <div>
+          <p class="text-lg font-semibold">3</p>
+          <p class="text-sm text-gray-400">Posts</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold">119.3k</p>
+          <p class="text-sm text-gray-400">Followers</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold">128</p>
+          <p class="text-sm text-gray-400">Following</p>
+        </div> 
+        
+      </div>
+    </div>
+  
+    <!-- Bio -->
+    <div class="mt-4 text-sm">
+      <p class="text-white font-medium">Mohith Munaga</p>
+      <p class="text-gray-400">Living For The Life.</p>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="mt-4 flex gap-2">
+      <button class="flex-1 border border-white text-white px-4 py-2 rounded-md font-semibold text-sm">Edit Profile</button>
+      <button class="flex-1 border border-white text-white px-4 py-2 rounded-md font-semibold text-sm">Share Profile</button>
+    </div>
+  
+    <!-- Highlights -->
+    <!-- Story Viewer Carousel -->
+    <div class="flex gap-4 mt-6 overflow-x-auto">
+      <div class="highlight-story" onclick="openStory(0)">D</div>
+      <div class="highlight-story" onclick="openStory(1)">A</div>
+      <div class="highlight-story" onclick="openStory(2)">M</div>
+      <div class="highlight-story" onclick="openStory(3)">N</div>
+    </div>
+    
+
+  </section>
+  
+  <!-- Story Viewer Modal -->
+<div id="storyViewer" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+  <div class="relative w-full max-w-sm mx-auto bg-black rounded-lg overflow-hidden">
+    <button onclick="closeStory()" class="absolute top-3 right-4 text-white text-2xl z-50">✕</button>
+    <img id="storyImage" src="" alt="Story Slide" class="w-full h-[480px] object-cover" />
+    <div class="absolute bottom-0 bg-black bg-opacity-60 text-white p-2 w-full text-center text-sm" id="storyCaption"></div>
+  </div>
+</div>
+
+
+  <!-- Posts Feed -->
+  <main class="max-w-xl mx-auto mt-6"> 
+
+    <script>
+      function toggleLike(button) {
+        const countSpan = button.querySelector(".like-count");
+        let count = parseInt(countSpan.innerText);
+        const liked = button.classList.toggle("liked");
+    
+        if (liked) {
+          count += 1;
+          button.innerHTML = `❤️ Liked (<span class='like-count'>${count}</span>)`;
+        } else {
+          count -= 1;
+          button.innerHTML = `❤️ Like (<span class='like-count'>${count}</span>)`;
+        }
+      }
+    </script>
+    
+    <script>
+      function showPfp() {
+        document.getElementById("pfpModal").classList.remove("hidden");
+      }
+  
+      function closePfp() {
+        document.getElementById("pfpModal").classList.add("hidden");
+      }
+    </script>
+  
+  </body>
+  </html>
+
+
+   <!-- Post 1 -->
+   <article class="post rounded-lg" id="attributes">
+    <div class="post-header">
+      <div>
+        <p class="font-semibold text-sm">@theweird.engineer</p>
+        <p class="text-xs text-gray-500">Posted 1h ago</p>
+      </div>
+      <span class="text-gray-400">⋯</span>
+    </div>
+    <img src="https://i.ytimg.com/vi/kynoEFQNEq8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCsof04XId0yxDxeJs22XKd41NeEQ" alt="Engineer Attributes" />
+    <div class="post-content">
+      <p><strong>@theweird.engineer</strong>  A deep dive into the core traits of a successful engineer — from problem solving to ethics. </p>
+      <p class="mt-1" style="color: #9ab3f5;">#Engineering #CaseStudy #STEM #EngineerLife</p>
+      <a href="1.html" class="text-yellow-400 underline mt-2 inline-block"> Read Full Case Study</a>
+    </div>
+    <div class="interact-bar">
+      <div>
+        <button onclick="toggleLike(this)">❤️ Like (<span class="like-count">0</span>)</button>
+
+        <button>💬 Comment</button>
+        <button>🔁 Share</button>
+      </div>
+      <button>🔖 Save</button>
+    </div>
+    <div class="comment-section">
+      <p><strong>freaky.tina</strong> Love the visual breakdown! </p>
+      <p><strong>robbery.bob</strong> These traits are spot on </p>
+      <p class="text-sm text-gray-500">View all 42 comments</p>
+    </div>
+  </article>
+
+  <!-- Post 2 -->
+  <article class="post rounded-lg" id="ontology">
+    <div class="post-header">
+      <div>
+        <p class="font-semibold text-sm">@theweird.engineer</p>
+        <p class="text-xs text-gray-500">Posted 2h ago</p>
+      </div>
+      <span class="text-gray-400">⋯</span>
+    </div>
+    <img src="https://image3.slideserve.com/6990285/ontology-as-a-branch-of-philosophy-l.jpg" alt="Concept Mapping" />
+    <div class="post-content">
+      <p><strong>@theweird.engineer</strong>  Mapping out ideas visually with reference ontologies & mind maps. Clarity starts with connections! 🔗</p>
+      <p class="mt-1" style="color: #9ab3f5;">#Ontology #MindMapping #EngineeringIdeas #VisualThinking</p>
+      <a href="2.html" class="text-yellow-400 underline mt-2 inline-block"> Explore Full Ontology Map</a>
+    </div>
+    <div class="interact-bar">
+      <div>
+        <button onclick="toggleLike(this)">❤️ Like (<span class="like-count">0</span>)</button>
+        <button>💬 Comment</button>
+        <button>🔁 Share</button>
+      </div>
+      <button>🔖 Save</button>
+    </div>
+    <div class="comment-section">
+      <p><strong>tiny.diya</strong> This is how I study complex topics now </p>
+      <p><strong>yash.maniac</strong> Mind maps > Notes </p>
+      <p class="text-sm text-gray-500">View all 18 comments</p>
+    </div>
+  </article>
+
+  <!-- Post 3 -->
+  <article class="post rounded-lg" id="ontology">
+    <div class="post-header">
+      <div>
+        <p class="font-semibold text-sm">@theweird.engineer</p>
+        <p class="text-xs text-gray-500">Posted 3h ago</p>
+      </div>
+      <span class="text-gray-400">⋯</span>
+    </div>
+    <img src="https://www.eurekaselect.com/images/graphical-abstract/cms/17/1/001.jpg" alt="Concept Mapping" />
+    <div class="post-content">
+      <p><strong>@theweird.engineer</strong>  Engineering Application Ontology.Using Concept & Mind Mapping</p>
+      <p class="mt-1" style="color: #9ab3f5;">#Ontology #MindMapping #ConceptMapping #VisualThinking</p>
+      <a href="3.html" class="text-yellow-400 underline mt-2 inline-block"> Explore Full Concept Mapping</a>
+    </div>
+    <div class="interact-bar">
+      <div>
+        <button onclick="toggleLike(this)">❤️ Like (<span class="like-count">0</span>)</button>
+        <button>💬 Comment</button>
+        <button>🔁 Share</button>
+      </div>
+      <button>🔖 Save</button>
+    </div>
+    <div class="comment-section">
+      <p><strong>tiny.taya</strong> Love it </p>
+      <p><strong>yash.manju</strong> Mind maps > Notes </p>
+      <p class="text-sm text-gray-500">View all 18 comments</p>
+    </div>
+  </article>
+
+</main>
+
+  <!-- Posts Feed -->
+  <main class="max-w-xl mx-auto mt-6" id="feed"></main>
+
+  <!-- Floating Add Post Button -->
+  <button
+    class="fixed top-4 right-4  bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 hover:opacity-90 text-white text-3xl w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-50"
+    title="Add Post"
+  >
+    +
+  </button>
+
+  <!-- Add Post Modal -->
+  <div id="postModal" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-end z-50 hidden transition-opacity duration-300">
+    <div id="modalContent" class="bg-zinc-900 p-6 rounded-t-2xl w-full max-w-md transform translate-y-full transition-transform duration-300">
+      <h2 class="text-xl font-bold mb-4">Create New Post</h2>
+      <input id="postImage" type="text" placeholder="Image URL" class="w-full mb-2 px-3 py-2 rounded bg-zinc-800 text-white">
+      <textarea id="postCaption" placeholder="Caption" class="w-full mb-2 px-3 py-2 rounded bg-zinc-800 text-white"></textarea>
+      <input id="postTags" type="text" placeholder="Hashtags (#tag1 #tag2)" class="w-full mb-2 px-3 py-2 rounded bg-zinc-800 text-white">
+      <input id="postLink" type="text" placeholder="Optional link URL" class="w-full mb-4 px-3 py-2 rounded bg-zinc-800 text-white">
+      <div class="flex justify-end gap-4">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600">Cancel</button>
+        <button id="submitPostBtn" class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-500">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-600 text-sm py-6 border-t border-gray-800 mt-10">
+    <p>© 2025 Mohith Munaga. Inspired by Instagram UI</p>
+  </footer>
+
+  <!-- JavaScript for Modal and Post Management -->
+  <script>
+    const modal = document.getElementById("postModal");
+    const addButton = document.querySelector("button[title='Add Post']");
+    const feed = document.getElementById("feed");
+    const submitPostBtn = document.getElementById("submitPostBtn");
+
+    addButton.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        document.getElementById("modalContent").classList.remove("translate-y-full");
+      }, 10);
+    });
+
+    function closeModal() {
+      const content = document.getElementById("modalContent");
+      content.classList.add("translate-y-full");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    }
+
+    const stories = [
+  {
+    image: "https://www.investopedia.com/thmb/QWfQNFAKm7YY7D17s30PR_WjhRU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2196837244-cd59229199614d8da69e839d12e30909.jpg",
+    caption: "Hey drake"
+  },
+  {
+    image: "https://www.reuters.com/resizer/v2/2U76NYLV6BNCJIVLF5YNZIDIBI.jpg?auth=1be7a48e261d1d3016f2c184faf60df8acc33be29cec2d9eec1167623462bc2f&height=1500&width=1200&quality=80&smart=true",
+    caption: "They not like us"
+  },
+  {
+    image: "https://hips.hearstapps.com/hmg-prod/images/kendrick-lamar-performs-on-the-pyramid-stage-during-day-news-photo-1733436883.jpg?crop=0.99902xw:1xh;center,top&resize=980:*",
+    caption: "Suck my DNA"
+  },
+  {
+    image: "https://images.wsj.net/im-16647971?width=620&height=413",
+    caption: "Mustarddddd"
+  }
+];
+
+let currentStory = 0;
+
+function openStory(index) {
+  currentStory = index;
+  updateStory();
+  document.getElementById("storyViewer").classList.remove("hidden");
+
+  // Auto-advance
+  setTimeout(nextStory, 4000);
+}
+
+function updateStory() {
+  const { image, caption } = stories[currentStory];
+  document.getElementById("storyImage").src = image;
+  document.getElementById("storyCaption").textContent = caption;
+}
+
+function nextStory() {
+  currentStory++;
+  if (currentStory < stories.length) {
+    updateStory();
+    setTimeout(nextStory, 4000);
+  } else {
+    closeStory();
+  }
+}
+
+function closeStory() {
+  document.getElementById("storyViewer").classList.add("hidden");
+  currentStory = 0;
+}
+
+
+    submitPostBtn.addEventListener("click", () => {
+      const image = document.getElementById("postImage").value.trim();
+      const caption = document.getElementById("postCaption").value.trim();
+      const tags = document.getElementById("postTags").value.trim();
+      const link = document.getElementById("postLink").value.trim();
+
+      if (!image || !caption) {
+        alert("Please provide both an image URL and caption.");
+        return;
+      }
+
+      const postHTML = document.createElement("article");
+      postHTML.className = "post rounded-lg";
+      postHTML.innerHTML = `
+        <div class="post-header">
+          <div>
+            <p class="font-semibold text-sm">@theweird.engineer</p>
+            <p class="text-xs text-gray-500">Posted just now</p>
+          </div>
+          <button class="text-red-400 text-sm hover:underline" onclick="this.closest('article').remove()">🗑️ Delete</button>
+        </div>
+        <img src="${image}" alt="Post Image" />
+        <div class="post-content">
+          <p><strong>@theweird.engineer</strong> ✍️ ${caption}</p>
+          <p class="text-yellow-300 mt-1">${tags}</p>
+          ${link ? `<a href="${link}" class="text-yellow-400 underline mt-2 inline-block">📖 Read More</a>` : ''}
+        </div>
+        <div class="interact-bar">
+          <div>
+            <button>❤️ Like</button>
+            <button>💬 Comment</button>
+            <button>🔁 Share</button>
+          </div>
+          <button>🔖 Save</button>
+        </div>
+        <div class="comment-section">
+          <p><strong>follower1</strong> Great post! 🔥</p>
+          <p><strong>follower2</strong> Super helpful 💡</p>
+          <p class="text-sm text-gray-500">View all comments</p>
+        </div>
+      `;
+
+      feed.prepend(postHTML);
+
+      // Reset modal fields
+      document.getElementById("postImage").value = "";
+      document.getElementById("postCaption").value = "";
+      document.getElementById("postTags").value = "";
+      document.getElementById("postLink").value = "";
+
+      closeModal();
+    });
+  </script>
+</body>
+</html>
